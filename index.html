@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terminal Geral — Centro de controle do seu ecossistema</title>
+<meta name="description" content="Terminal Geral centraliza agentes de IA, projetos, automações, integrações, bancos de dados e arquivos num único centro de controle. Servidor Node.js puro, zero dependências, com busca em linguagem natural e integração Claude + Obsidian." />
+<meta property="og:title" content="Terminal Geral — Centro de controle do seu ecossistema" />
+<meta property="og:description" content="Um centro de controle que reúne agentes, projetos, automações e integrações. Node.js puro, zero dependências." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235e6ad2'/%3E%3Cpath d='M9 12l5 4-5 4M16 21h7' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════ navbar ══════════════════════════ -->
+<nav class="topnav" id="topnav">
+  <div class="envolto topnav-inner">
+    <a href="#topo" class="logo">
+      <span class="logo-mark">›_</span>
+      <strong>Terminal Geral</strong>
+    </a>
+    <div class="topnav-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#paleta">Command palette</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#integracoes">Integrações</a>
+    </div>
+    <div class="topnav-direita">
+      <button id="tema-toggle" title="Alternar tema">🌙</button>
+      <a class="btn btn-secundario" id="gh-link" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════ hero ══════════════════════════ -->
+<header class="hero" id="topo">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="envolto hero-inner">
+    <span class="selo"><span class="dot dot-online"></span> Node.js puro · zero dependências · <span class="mono">v1.0</span></span>
+    <h1>O <span class="grad">centro de controle</span> de todo o seu ecossistema</h1>
+    <p class="hero-sub">
+      Agentes de IA, projetos, automações, integrações, bancos de dados e arquivos — reunidos numa
+      única camada de gerenciamento. Métricas de sistema reais, busca em linguagem natural e
+      integração nativa com Claude e Obsidian.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primario btn-grande" href="#recursos">Explorar recursos</a>
+      <a class="btn btn-secundario btn-grande" id="gh-link-2" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="ico"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        Ver no GitHub
+      </a>
+    </div>
+    <p class="hero-nota">
+      <span><code class="mono">node server.mjs</code> → abre em <span class="mono">localhost:4610</span></span>
+      <span>·</span>
+      <span>Command palette com <span class="keycaps"><kbd>Ctrl</kbd><kbd>K</kbd></span></span>
+    </p>
+
+    <!-- ─────── mockup fiel da interface ─────── -->
+    <div class="mockup-wrap">
+      <div class="mockup-glow"></div>
+      <div class="app">
+        <div class="app-janela">
+          <span class="tf tf-r"></span><span class="tf tf-y"></span><span class="tf tf-g"></span>
+          <span class="url">localhost:4610 — Terminal Geral · Painel</span>
+        </div>
+
+        <aside class="app-side">
+          <div class="marca">
+            <span class="logo-mark">›_</span>
+            <div><strong>Terminal Geral</strong><small>centro de controle</small></div>
+          </div>
+          <div class="snav ativo"><svg viewBox="0 0 24 24" class="ico"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg> Painel</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg> Agentes</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> Projetos</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg> Automações</div>
+          <div class="ssep">Sistema</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><path d="M4 7h16M4 12h16M4 17h10"/></svg> Logs</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/></svg> Bancos</div>
+          <div class="snav"><svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a7.9 7.9 0 0 0 .1-3l1.6-1.2-1.5-2.6-1.9.6a7.9 7.9 0 0 0-2.6-1.5L14.5 3h-3l-.6 1.9A7.9 7.9 0 0 0 8.3 6.4l-1.9-.6-1.5 2.6L6.5 9.6a7.9 7.9 0 0 0 0 3l-1.6 1.2 1.5 2.6 1.9-.6a7.9 7.9 0 0 0 2.6 1.5l.6 1.7h3l.6-1.9a7.9 7.9 0 0 0 2.6-1.5l1.9.6 1.5-2.6Z"/></svg> Configurações</div>
+        </aside>
+
+        <div class="app-main">
+          <div class="app-top">
+            <div class="app-busca">
+              <svg viewBox="0 0 24 24" class="ico"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <span>Buscar em tudo…</span>
+              <span class="keycaps"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+            </div>
+            <span class="pill"><span class="dot dot-online"></span> Claude: online</span>
+          </div>
+          <div class="app-corpo">
+            <div class="app-h">Painel</div>
+            <p>Métricas do sistema em tempo real · varredura do ecossistema</p>
+            <div class="mgrid">
+              <div class="mcard">
+                <div class="rot">CPU</div>
+                <div class="val">34<span style="font-size:13px;color:var(--ink-3)">%</span></div>
+                <div class="sub">8 núcleos</div>
+                <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--accent)" stroke-width="1.6" points="0,22 12,18 24,24 36,12 48,16 60,8 72,14 84,6 100,11"/></svg>
+              </div>
+              <div class="mcard">
+                <div class="rot">Memória</div>
+                <div class="val">11.2<span style="font-size:13px;color:var(--ink-3)"> GB</span></div>
+                <div class="sub">de 32 GB</div>
+                <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--info)" stroke-width="1.6" points="0,16 12,14 24,15 36,13 48,14 60,12 72,13 84,11 100,12"/></svg>
+              </div>
+              <div class="mcard">
+                <div class="rot">Disco</div>
+                <div class="val">62<span style="font-size:13px;color:var(--ink-3)">%</span></div>
+                <div class="sub">C: · 891 GB</div>
+                <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--ok)" stroke-width="1.6" points="0,18 20,18 40,17 60,17 80,16 100,16"/></svg>
+              </div>
+              <div class="mcard">
+                <div class="rot">Agentes</div>
+                <div class="val">22</div>
+                <div class="sub">18 ativos</div>
+                <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--aviso)" stroke-width="1.6" points="0,24 16,20 32,21 48,14 64,15 80,9 100,7"/></svg>
+              </div>
+            </div>
+            <div class="mrow">
+              <div class="mbloco">
+                <h4><svg viewBox="0 0 24 24" class="ico" style="width:14px;height:14px;stroke:var(--accent)"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg> Agentes recentes</h4>
+                <div class="mlinha"><span class="dot dot-online"></span><span class="nome">Orquestrador (Triagem)</span><span class="mchip">pipeline</span><span class="meta">P0</span></div>
+                <div class="mlinha"><span class="dot dot-online"></span><span class="nome">Comitê de Avaliadores</span><span class="mchip">WSJF</span><span class="meta">3×</span></div>
+                <div class="mlinha"><span class="dot dot-online"></span><span class="nome">Forja (Obsidian Lab)</span><span class="mchip">wiki</span><span class="meta">+8</span></div>
+                <div class="mlinha"><span class="dot dot-online"></span><span class="nome">Claude Code (CLI)</span><span class="mchip">motor-ia</span><span class="meta">spawn</span></div>
+              </div>
+              <div class="mbloco">
+                <h4><svg viewBox="0 0 24 24" class="ico" style="width:14px;height:14px;stroke:var(--info)"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6-6-3.5-6 3.5 1.5-6L3 8.5 9 8Z"/></svg> Inteligência</h4>
+                <div class="mlinha"><span class="nome">14 projetos varridos</span><span class="meta">ok</span></div>
+                <div class="mlinha"><span class="nome">Índice de arquivos</span><span class="meta mono">12.4k</span></div>
+                <div class="mlinha"><span class="nome">Backup diário</span><span class="meta">.zip</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════ faixa de números ══════════════════════════ -->
+<div class="faixa reveal">
+  <div class="envolto faixa-inner">
+    <div><div class="n">~22</div><div class="r">agentes catalogados</div></div>
+    <div><div class="n">14</div><div class="r">projetos gerenciados</div></div>
+    <div><div class="n">0<span class="u">dep</span></div><div class="r">dependências npm</div></div>
+    <div><div class="n">100<span class="u">%</span></div><div class="r">métricas reais</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ recursos ══════════════════════════ -->
+<section class="bloco" id="recursos">
+  <div class="envolto">
+    <div class="secao-cabeca centro reveal">
+      <div class="secao-tag">Recursos</div>
+      <h2 class="secao-h">Tudo que você orquestra, num só lugar</h2>
+      <p class="secao-lead">Cada domínio do ecossistema vira um módulo gerenciável — monitorado ao vivo, buscável e executável a partir do mesmo painel.</p>
+    </div>
+
+    <div class="feats">
+      <div class="feat destaque reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <h3>Dashboard com métricas reais</h3>
+        <p>CPU (delta de <code class="mono">os.cpus()</code>), RAM (<code class="mono">os.freemem</code>) e disco lidos direto do sistema operacional — não são números fictícios. Gráficos ao vivo, inteligência do sistema e varredura real de cada projeto (contagem de arquivos + última modificação).</p>
+        <div class="chips"><span class="chip">CPU / RAM / disco ao vivo</span><span class="chip">scan de projetos</span><span class="chip">skeleton loading</span></div>
+      </div>
+
+      <div class="feat cat-info reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg></div>
+        <h3>Gestão de agentes</h3>
+        <p>Cada agente é um módulo independente: iniciar, pausar, reiniciar, editar, duplicar ou excluir. Pipelines maker/checker, comitês em paralelo e o Claude Code como motor de IA.</p>
+      </div>
+
+      <div class="feat cat-ok reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></div>
+        <h3>Projetos & arquivos</h3>
+        <p>Detecção automática por varredura do filesystem, favoritos, filtros e tags. Navegação sandboxed dentro do vault com breadcrumb.</p>
+      </div>
+
+      <div class="feat reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Busca em linguagem natural</h3>
+        <p>Peça <em>“mostrar todos os PDFs de matemática”</em> e o índice real filtra por tipo, disciplina e domínio — espelhando as regras de roteamento do ecossistema.</p>
+        <div class="chips"><span class="chip">intenção por tipo</span><span class="chip">por domínio</span></div>
+      </div>
+
+      <div class="feat cat-aviso reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10l2.5 2L8 14M13 15h4"/></svg></div>
+        <h3>Command palette · <span class="keycaps"><kbd>Ctrl</kbd><kbd>K</kbd></span></h3>
+        <p>Ao estilo Raycast: busque e execute agentes, projetos, arquivos, notas, logs e configurações sem tirar as mãos do teclado.</p>
+      </div>
+
+      <div class="feat reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><path d="M9 12l5 4-5 4M16 21h7"/><rect x="2" y="3" width="20" height="18" rx="3"/></svg></div>
+        <h3>Integração Claude + Obsidian</h3>
+        <p>Resolve o <code class="mono">claude.exe</code> local e conversa via <code class="mono">spawn</code>. Cada nota criada vira um <code class="mono">.md</code> real no vault, com frontmatter e backlink.</p>
+        <div class="chips"><span class="chip">Claude Code CLI</span><span class="chip">notas → .md</span></div>
+      </div>
+
+      <div class="feat reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><path d="M12 3a9 9 0 1 0 9 9h-9Z"/><path d="M12 3v9l6.5-6.5"/></svg></div>
+        <h3>Temas & personalização</h3>
+        <p>Escuro, claro e automático, com acento configurável. Microinterações, hairlines e mono para dados — a estética Linear × Raycast × Warp por inteiro.</p>
+      </div>
+
+      <div class="feat reveal">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" class="ico"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>Logs, backup & segurança</h3>
+        <p>Logs estruturados em JSONL com filtros, backup <code class="mono">.zip</code> carimbado e PIN opcional (SHA-256) protegendo a API por token de sessão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ command palette ══════════════════════════ -->
+<section class="bloco" id="paleta">
+  <div class="envolto split">
+    <div class="reveal">
+      <div class="secao-tag">Command palette</div>
+      <h2 class="secao-h">Fale com o sistema como você pensa</h2>
+      <p class="secao-lead">Uma caixa. Linguagem natural. Todo o ecossistema alcançável em duas teclas.</p>
+      <div class="lista-checa">
+        <div class="checa"><span class="mk"><svg viewBox="0 0 24 24" class="ico"><path d="M20 6L9 17l-5-5"/></svg></span><div><strong>Sem menus, sem cliques</strong><span>Digite a intenção e execute — agentes, projetos, arquivos, notas e configurações.</span></div></div>
+        <div class="checa"><span class="mk"><svg viewBox="0 0 24 24" class="ico"><path d="M20 6L9 17l-5-5"/></svg></span><div><strong>Índice real do vault</strong><span>Resultados vêm de uma varredura de arquivos de verdade, não de uma lista fixa.</span></div></div>
+        <div class="checa"><span class="mk"><svg viewBox="0 0 24 24" class="ico"><path d="M20 6L9 17l-5-5"/></svg></span><div><strong>Roteamento por disciplina</strong><span>“PDFs de matemática” cai só na pasta certa — mesma regra do ecossistema.</span></div></div>
+      </div>
+    </div>
+
+    <div class="paleta-demo reveal">
+      <div class="paleta-topo">
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span class="paleta-q" id="paleta-q"></span><span class="cursor"></span>
+        <kbd>Esc</kbd>
+      </div>
+      <div class="paleta-res">
+        <div class="paleta-g">Agentes</div>
+        <div class="paleta-i sel"><svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg><div><div class="t">Roteador de Estudos</div><div class="s">responde só na pasta da disciplina</div></div><span class="k keycaps"><kbd>↵</kbd></span></div>
+        <div class="paleta-i"><svg viewBox="0 0 24 24" class="ico"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6-6-3.5-6 3.5 1.5-6L3 8.5 9 8Z"/></svg><div><div class="t">Comitê de Avaliadores</div><div class="s">3 especialistas em paralelo · WSJF</div></div></div>
+        <div class="paleta-g">Arquivos</div>
+        <div class="paleta-i"><svg viewBox="0 0 24 24" class="ico"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z"/></svg><div><div class="t">matematica-1 · cap 07.pdf</div><div class="s">estudos/matematica-1/pdfs/colecao-01</div></div></div>
+        <div class="paleta-i"><svg viewBox="0 0 24 24" class="ico"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z"/></svg><div><div class="t">matematica-2 · cap 03.pdf</div><div class="s">estudos/matematica-2/pdfs/colecao-01</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ arquitetura ══════════════════════════ -->
+<section class="bloco" id="arquitetura">
+  <div class="envolto">
+    <div class="secao-cabeca reveal">
+      <div class="secao-tag">Arquitetura escalável</div>
+      <h2 class="secao-h">Adicionar um módulo é acrescentar um objeto</h2>
+      <p class="secao-lead">O núcleo nunca muda. Cada domínio da API é um handler independente em <code class="mono">server.mjs</code>; cada módulo do ecossistema é uma entrada em <code class="mono">registry.json</code>. Escalabilidade por composição, não por reescrita.</p>
+    </div>
+
+    <div class="arqui reveal">
+      <div class="arqui-top">
+        <span class="tf tf-r"></span><span class="tf tf-y"></span><span class="tf tf-g"></span>
+        <span class="nomef">registry.json</span>
+        <span class="pill pill-acento">catálogo central</span>
+      </div>
+<pre class="code"><span class="c">// adicionar um agente = só acrescentar aqui. O núcleo não muda.</span>
+{
+  <span class="p">"agents"</span>: [
+    {
+      <span class="p">"id"</span>: <span class="s">"claude-code"</span>,
+      <span class="p">"nome"</span>: <span class="s">"Claude Code (CLI)"</span>,
+      <span class="p">"funcao"</span>: <span class="s">"motor-ia"</span>,
+      <span class="p">"kind"</span>: <span class="s">"cli"</span>,
+      <span class="p">"apis"</span>: [<span class="s">"Anthropic"</span>]
+    }
+  ],
+  <span class="p">"projects"</span>: [ <span class="c">/* 14 projetos */</span> ],
+  <span class="p">"integrations"</span>: [ <span class="c">/* Claude · Obsidian · MCPs · gh */</span> ],
+  <span class="p">"automations"</span>: [ <span class="c">/* hooks · backup · launch */</span> ],
+  <span class="p">"databases"</span>: [ <span class="c">/* JSON · SQLite · Postgres */</span> ]
+}</pre>
+    </div>
+
+    <div class="arqui-nota">
+      <div class="item reveal"><div class="num">01</div><h4>Node.js puro</h4><p>Só a biblioteca padrão: <code class="mono">node:http</code>, <code class="mono">node:fs</code>, <code class="mono">node:os</code>, <code class="mono">child_process</code>. Nenhum <code class="mono">npm install</code>.</p></div>
+      <div class="item reveal"><div class="num">02</div><h4>Handlers independentes</h4><p>Cada rota é isolada em <code class="mono">ROTAS</code>. Métricas, busca, agentes e integração Claude não se pisam.</p></div>
+      <div class="item reveal"><div class="num">03</div><h4>Estado durável</h4><p><code class="mono">data/</code> guarda estado, settings e logs JSONL append-only fora da conversa — memória que sobrevive à sessão.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ integrações ══════════════════════════ -->
+<section class="bloco" id="integracoes">
+  <div class="envolto">
+    <div class="secao-cabeca reveal">
+      <div class="secao-tag">Integrações</div>
+      <h2 class="secao-h">Conectado ao resto do seu stack</h2>
+      <p class="secao-lead">Integrações nativas e via MCP — o Terminal Geral fala com as ferramentas onde o trabalho já acontece.</p>
+    </div>
+    <div class="integ reveal">
+      <div class="item"><span class="g"></span> Claude Code CLI</div>
+      <div class="item"><span class="g ok"></span> Obsidian</div>
+      <div class="item"><span class="g info"></span> MCP ruflo</div>
+      <div class="item"><span class="g info"></span> MCP headroom</div>
+      <div class="item"><span class="g info"></span> MCP magic</div>
+      <div class="item"><span class="g info"></span> MCP shadcn</div>
+      <div class="item"><span class="g ok"></span> GitHub CLI (gh)</div>
+      <div class="item"><span class="g aviso"></span> Resend</div>
+      <div class="item"><span class="g ok"></span> Supabase</div>
+      <div class="item"><span class="g"></span> Sistema de arquivos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CTA final ══════════════════════════ -->
+<section class="bloco" style="padding-top:20px">
+  <div class="envolto">
+    <div class="cta reveal">
+      <h2>Assuma o controle do ecossistema</h2>
+      <p>Clone, rode <code class="mono">node server.mjs</code> e abra <span class="mono">localhost:4610</span>. Sem build, sem dependências, sem fricção.</p>
+      <div class="cta-ctas">
+        <a class="btn btn-primario btn-grande" id="gh-link-3" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" class="ico"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          Ver o código
+        </a>
+        <a class="btn btn-secundario btn-grande" href="#recursos">Rever recursos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ rodapé ══════════════════════════ -->
+<footer>
+  <div class="envolto foot-inner">
+    <a href="#topo" class="logo"><span class="logo-mark">›_</span><strong>Terminal Geral</strong></a>
+    <div class="foot-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#paleta">Command palette</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#integracoes">Integrações</a>
+      <a id="gh-link-4" href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-copy">
+      <span>Centro de controle · Node.js puro · zero dependências</span>
+      <span class="mono">Linear × Raycast × Warp</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
