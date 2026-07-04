@@ -419,3 +419,49 @@ footer { border-top: 1px solid var(--hairline); padding: 40px 0 48px; margin-top
   * { animation: none !important; transition: none !important; scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ═══════════════════ status do app local + aviso amigável ═══════════════════ */
+
+/* pontinho de status no botão "Abrir o Terminal Geral" */
+.app-status-dot { width: 8px; height: 8px; border-radius: var(--r-pill); margin-left: 2px; flex: 0 0 auto; }
+.app-status-dot[data-estado="on"]  { background: var(--ok);   box-shadow: 0 0 0 3px var(--ok-soft); }
+.app-status-dot[data-estado="off"] { background: var(--ink-4); }
+.app-status-dot:not([data-estado]), .app-status-dot[data-estado=""] { display: none; }
+
+/* overlay do aviso "o app é local" */
+.aviso-overlay {
+  position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px;
+  background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
+  opacity: 0; visibility: hidden; transition: opacity var(--transicao), visibility var(--transicao);
+}
+.aviso-overlay.aberto { opacity: 1; visibility: visible; }
+.aviso-card {
+  position: relative; width: min(460px, 100%); background: var(--surface-1);
+  border: 1px solid var(--hairline-forte); border-radius: var(--r-xl); padding: 28px 26px 24px;
+  box-shadow: var(--sombra-modal); transform: translateY(8px) scale(.98); transition: transform var(--transicao);
+}
+.aviso-overlay.aberto .aviso-card { transform: none; }
+.aviso-x {
+  position: absolute; top: 12px; right: 14px; background: none; border: 0; color: var(--ink-4);
+  font-size: 22px; line-height: 1; cursor: pointer; transition: color var(--transicao);
+}
+.aviso-x:hover { color: var(--ink); }
+.aviso-emoji { font-size: 34px; }
+.aviso-card h3 { margin: 8px 0 10px; font-size: 19px; letter-spacing: -.01em; color: var(--ink); }
+.aviso-card p { margin: 0 0 10px; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.aviso-passo { margin: 14px 0 6px !important; font-size: 13px !important; color: var(--ink-3) !important; }
+.aviso-cmd {
+  display: flex; align-items: center; gap: 8px; background: var(--surface-3);
+  border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 10px 12px;
+}
+.aviso-cmd code { font-size: 13px; color: var(--ink); overflow: auto; white-space: nowrap; flex: 1; }
+.aviso-copy {
+  flex: 0 0 auto; background: var(--surface-4); border: 1px solid var(--hairline-forte);
+  color: var(--ink-2); font-size: 12px; padding: 4px 10px; border-radius: var(--r-sm); cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.aviso-copy:hover { color: var(--ink); border-color: var(--accent); }
+.aviso-nota { margin-top: 14px !important; font-size: 13px !important; color: var(--ink-3) !important; }
+.aviso-nota a { color: var(--accent); }
+.aviso-acoes { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.aviso-acoes .btn { flex: 1; justify-content: center; white-space: nowrap; }
